@@ -1,15 +1,22 @@
 import React from "react";
-import {useLocation} from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import '../DadosForm.css';
 
 function DadosForm() {
-const location = useLocation();
-return (
-<section className="DadosForm">
- <h3>Os dados inseridos no formulário surgirão aqui !</h3>
-  <p> Melhor artista/banda escolhido {location.state.melhorart}</p>
-   <p> Sugestões {location.state.sugestoes}</p>
-</section>
-);
+  const location = useLocation();
+
+  return (
+    <section className="DadosForm">
+      <h1>Os dados inseridos no formulário estão aqui!</h1>
+      <br/>
+      <p><b>Melhor artista/banda escolhido: </b> {location.state?.melhorartista || "Sem resposta"}</p>
+      <p><b>Atividade(s) escolhida(s): </b> {location.state?.melhoratividade || "Sem resposta"}</p>
+      <p><b>Classificação: </b> {location.state?.classificacao || "Sem resposta"}</p>
+      <p><b>Sugestões: </b> {location.state?.sugestoes || "Sem resposta"}</p>
+      <br/>
+      <h3>Obrigado! O teu feedback é importante para nós :)</h3>
+    </section>
+  );
 }
 
 export default DadosForm;
