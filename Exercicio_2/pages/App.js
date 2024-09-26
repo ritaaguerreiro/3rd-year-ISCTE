@@ -140,16 +140,23 @@ return(<section id="feedback">
         <br /><br />
     </div>
 
-    <div>
-        <label htmlFor="first-name">Nome:</label>
-        <input type="text" id="first-name" name="first-name" placeholder="Escreve aqui o teu nome" />
-    </div>
-    <br />
-    <div>
-        <label htmlFor="idade">Idade:</label>
-        <input type="number" id="idade" name="idade" min="16" placeholder="Escreve aqui a tua idade" />
-    </div>
-    <br />
+                <div>
+                 <label htmlFor="sugestao"> </label>
+                 <textarea type="textarea" id="sugestao" name="sugestao" rows="5" cols="50">Deixe aqui a sua sugestão de artistas e bandas, e como podemos melhorar para o próximo ano! </textarea>
+                 <br /><br />
+                 </div>
+
+                     <div>
+                    <label htmlFor="first-name">Nome:</label>
+                    <input type="text" id="first-name" name="first-name" placeholder="Escreve aqui o teu nome" />
+                </div>
+                <br />
+                <div>
+                    <label htmlFor="idade">Idade:</label>
+                    <input type="number" id="idade" name="idade" min="16" placeholder="Escreve aqui a tua idade" />
+                </div>
+                <br />
+    
     <input type="submit" value="Submeter" />
 </form>
 </section>
