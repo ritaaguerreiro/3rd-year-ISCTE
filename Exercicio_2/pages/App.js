@@ -3,6 +3,7 @@ import logo from '../logo.svg';
 import '../App.css';
 import festaImage from '../fantasy.jpg';
 import DadosForm from './DadosForm';
+import {useNavigate} from "react-router-dom";
 
 function Cabecalho() {
 return(<section id="head">
@@ -32,10 +33,24 @@ return(
 }
 
 function FormFesta(){
-return(<section id="feedback">
-<h2>Dá-nos o teu feedback sobre a festa</h2>
-<p>O teu feedback é importante para que possamos melhor satisfazer os teus gostos nas próximas festas :)</p>
+  const navigate = useNavigate();
+
+  const goToReceiver = () => {
+    navigate('/DadosForm', {
+      state: {
+        melhorart: document.getElementById("melhorart").value,
+        sugestoes: document.getElementById("sugestao").value
+      }
+    });
+  };
+
+return(
+
+<section id="feedback">
+<h2>Dá-nos o teu feedback sobre a festa...</h2>
+<p>O teu feedback é importante para nós :)</p>
 <form>
+
 <input type="checkbox" id="dia27" name="dia27" value="dia27" />
     <label htmlFor="dia27">Dia 27</label>
     <br /><br />
@@ -48,49 +63,24 @@ return(<section id="feedback">
     <label htmlFor="dia29">Dia 29</label>
     <br /><br />
 
-    <h2>Qual o artista/banda que mais gostaste de ouvir?</h2>
+    <h3>Qual o artista/banda que mais gostaste de ouvir?</h3>
 
-    <input type="radio" id="Shanin Blake" name="artist" value="1" />
-    <label htmlFor="ShaninBlake">Shanin Blake (dia 27)</label>
+<select id="melhorart" name="artist">
+  <option value="1">Shanin Blake (dia 27)</option>
+  <option value="2">Toy (dia 27)</option>
+  <option value="5">Aurora (dia 28)</option>
+  <option value="7">Rosinha (dia 29)</option>
+  <option value="3">Clairo (dia 27)</option>
+  <option value="6">D.A.M.A. (dia 28)</option>
+  <option value="8">Tunng (dia 29)</option>
+  <option value="8">Quim Barreiros (dia 29)</option>
+  <option value="8">Big Thief (dia 29)</option>
+  <option value="10">Não gostei de nenhum :(</option>
+</select>
+
     <br /><br />
 
-    <input type="radio" id="Toy" name="artist" value="2" />
-    <label htmlFor="Toy">Toy (dia 27)</label>
-    <br /><br />
-
-    <input type="radio" id="Aurora" name="artist" value="5" />
-    <label htmlFor="Aurora">Aurora (dia 28)</label>
-    <br /><br />
-
-    <input type="radio" id="Rosinha" name="artist" value="7" />
-    <label htmlFor="Rosinha">Rosinha (dia 29)</label>
-    <br /><br />
-
-    <input type="radio" id="Clairo" name="artist" value="3" />
-    <label htmlFor="Clairo">Clairo (dia 27)</label>
-    <br /><br />
-
-    <input type="radio" id="DAMA" name="artist" value="6" />
-    <label htmlFor="DAMA">D.A.M.A. (dia 28)</label>
-    <br /><br />
-
-    <input type="radio" id="Tunng" name="artist" value="8" />
-    <label htmlFor="Tunng">Tunng (dia 29)</label>
-    <br /><br />
-
-   <input type="radio" id="Quim" name="artist" value="8" />
-    <label htmlFor="Quim">Quim Barreiros (dia 29)</label>
-    <br /><br />
-
-    <input type="radio" id="Big" name="artist" value="8" />
-    <label htmlFor="Big">Big Thief (dia 29)</label>
-    <br /><br />
-
-    <input type="radio" id="None" name="artist" value="10" />
-    <label htmlFor="None">Não gostei de nenhum :(</label>
-    <br /><br />
-
-    <h2>Diz-nos a(s) atividade(s) que mais adoraste!</h2>
+    <h3>Diz-nos a(s) atividade(s) que mais adoraste!</h3>
 
     <input type="checkbox" id="SMR" name="option1" value="1" />
     <label htmlFor="SMR">Roda Gigante </label>
@@ -120,7 +110,7 @@ return(<section id="feedback">
     <label htmlFor="NoneActivities">Não gostei de nenhuma :(</label>
     <br /><br />
 
-    <h2>Classifica a tua satisfação neste festival! (de 1 a 5 estrelas)</h2>
+    <h3>Classifica a tua satisfação neste festival! (de 1 a 5 estrelas)</h3>
 
     <div className="rating" style={{ marginRight: '600px' }}>
         <input type="radio" id="star5" name="rating" value="5" />
@@ -140,24 +130,12 @@ return(<section id="feedback">
         <br /><br />
     </div>
 
-                <div>
                  <label htmlFor="sugestao"> </label>
                  <textarea type="textarea" id="sugestao" name="sugestao" rows="5" cols="50">Deixe aqui a sua sugestão de artistas e bandas, e como podemos melhorar para o próximo ano! </textarea>
                  <br /><br />
-                 </div>
 
-                     <div>
-                    <label htmlFor="first-name">Nome:</label>
-                    <input type="text" id="first-name" name="first-name" placeholder="Escreve aqui o teu nome" />
-                </div>
-                <br />
-                <div>
-                    <label htmlFor="idade">Idade:</label>
-                    <input type="number" id="idade" name="idade" min="16" placeholder="Escreve aqui a tua idade" />
-                </div>
-                <br />
-    
-    <input type="submit" value="Submeter" />
+    <button onClick={goToReceiver} target="_blank">Clica aqui para verificares a tua resposta</button>
+
 </form>
 </section>
 );
@@ -169,7 +147,6 @@ function App() {
     <Cabecalho />
     <ListaDasBandas />
     <FormFesta />
-     <DadosForm />
  </div>
  );
 }
