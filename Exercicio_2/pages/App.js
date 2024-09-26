@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../logo.svg';
 import '../App.css';
-import festaImage from '../Festa no ano anterior_gif.gif';
+import festaImage from '../fantasy.jpg';
 import DadosForm from './DadosForm';
 
 function Cabecalho() {
