@@ -7,10 +7,19 @@
   pointer-events: none;
 }
 
+.label-sugestao {
+    font-size: 18px; /* Tamanho da fonte para o rótulo */
+}
+
 h1 {
 color: green;
-font-family: 'Georgia', sans-serif;
+font-family: 'Lucida Handwriting', sans-serif;
 font-size: 40px
+}
+
+h2 {
+font-family: 'Courier New', snas-serif;
+font-size: 30px
 }
 
 h3 {
@@ -20,13 +29,63 @@ font-size: 20px
 body  {
 background-color: lightgreen;
 background: rgba(0, 128, 0, 0.2)
-
 }
+
+#bandas {
+    font-family: 'Courier New', sans-serif;
+    font-size: 25px;
+}
+
+#melhora {
+ font-family: 'Courier New', sans-serif;
+    font-size: 19px;
+}
+
+#atividades {
+ font-family: 'Courier New', sans-serif;
+    font-size: 19px;
+}
+
+#rating {
+ font-family: 'Courier New', sans-serif;
+    font-size: 19px;
+}
+
+#sugestao{
+ font-family: 'Courier New', sans-serif;
+    font-size: 22px;
+}
+
 
 p {
 font-family: 'Georgia', sans-serif;
 font-size: 20px;
 }
+
+.lista {
+    list-style-type: disc;
+    padding: 0;
+    margin: 0;
+}
+
+.botao {
+    font-size: 20px;
+    background-color: green;
+    color: white;
+    border: black;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.3s;
+}
+
+.botao:hover {
+    background-color: #66BB6A;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -56,4 +115,3 @@ font-size: 20px;
   to {
     transform: rotate(360deg);
   }
-}
