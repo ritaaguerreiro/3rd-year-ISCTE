@@ -7,6 +7,7 @@
   pointer-events: none;
 }
 
+
 .label-sugestao {
     font-size: 18px; /* Tamanho da fonte para o rótulo */
 }
@@ -26,14 +27,48 @@ h3 {
 font-size: 20px
 }
 
-body  {
-background-color: lightgreen;
-background: rgba(0, 128, 0, 0.2)
+body{
+background: #8db600;
+background-image: url('fantasy.jpg');
+background-attachment: fixed;
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+}
+
+.gif_dragao {
+  position: fixed;
+  top: 10px;
+  left: 225px;
+  width: 250px;
+}
+
+.gif_dragao img {
+  width: 100%;
+}
+
+.gif_cogumelo {
+  position: fixed;
+  bottom: 200px;
+  right: 50px;
+  width: 100px;
+}
+
+.gif_cogumelo img {
+  width: 100%;
 }
 
 #bandas {
     font-family: 'Courier New', sans-serif;
     font-size: 25px;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding-right: 100px;
+    padding-left: 100px;
+    padding-bottom: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 20px auto;
 }
 
 #melhora {
@@ -54,6 +89,22 @@ background: rgba(0, 128, 0, 0.2)
 #sugestao{
  font-family: 'Courier New', sans-serif;
     font-size: 22px;
+    align-items: center;
+}
+
+textarea {
+    width: 500px;
+    height: 250px;
+    }
+
+#feedback{
+    background-color: rgba(255, 255, 255, 0.5);
+    padding-right: 100px;
+    padding-left: 100px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 20px auto;
 }
 
 
@@ -61,6 +112,15 @@ p {
 font-family: 'Georgia', sans-serif;
 font-size: 20px;
 }
+
+.heading_images {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+        grid-gap: 0; /* Sem espaçamento entre as imagens */
+        justify-content: center; /* Centraliza o grid */
+        width: 30%; /* Largura total do grid (ajuste conforme necessário) */
+        margin: 0 auto; /* Centraliza horizontalmente o container de imagens */
+        }
 
 .lista {
     list-style-type: disc;
@@ -94,7 +154,7 @@ font-size: 20px;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #228b22;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -102,6 +162,18 @@ font-size: 20px;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.footer {
+    background-color: rgba(0, 128, 0, 0.4);
+    /*background-color: rgba(155, 221, 255, 0.6);*/
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
 }
 
 .App-link {
@@ -115,3 +187,4 @@ font-size: 20px;
   to {
     transform: rotate(360deg);
   }
+}
