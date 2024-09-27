@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import logo from '../logo.svg';
 import '../App.css';
-import festaImage from '../fantasy.jpg';
 import DadosForm from './DadosForm';
 import {useNavigate} from "react-router-dom";
 import mago from "../mago.jpg";
