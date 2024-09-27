@@ -4,22 +4,43 @@ import '../App.css';
 import festaImage from '../fantasy.jpg';
 import DadosForm from './DadosForm';
 import {useNavigate} from "react-router-dom";
+import mago from "../mago.jpg";
+import capucho from "../capucho.jpg";
+import elf from "../elf.jpg";
+import fada from "../fada.jpg";
+import rei from "../rei.jpg";
+import viking from "../viking.jpg";
+import dragao from "../dragon.gif";
+import cogumelo from '../mushroom.gif';
+
 
 function Cabecalho() {
 return(<section id="head">
 <h1>Festa Fantasia &#129498;</h1>
-<img src={festaImage} alt="Imagem Tema da Festa"/>
+<div className="gif_dragao">
+    <img src={dragao} alt="dragao"/>
+</div>
+<div className="gif_cogumelo">
+    <img src={cogumelo} alt="cogumelo"/>
+</div>
+<div class="heading_images">
+    <img src={mago} alt="mago"/>
+    <img src={capucho} alt="capuchinho"/>
+    <img src={rei} alt="rei"/>
+    <img src={fada} alt="fada"/>
+    <img src={elf} alt="elfa"/>
+    <img src={viking} alt="viking"/>
+</div>
 </section>);
 }
 
 function ListaDasBandas(){
 return(
 <section id="bandas">
-<br/>
 <h2><b>ARTISTAS</b> que não vais querer perder &#129311;</h2>
 <br/>
 <ul class="lista">
-<li>Shanin Blake</li>
+<b><li>Shanin Blake</li>
 <li>Toy</li>
 <li>Aurora</li>
 <li>Rosinha</li>
@@ -27,7 +48,7 @@ return(
 <li>D.A.M.A.</li>
 <li>Tunng</li>
 <li>Quim Barreiros</li>
-<li>Big Thief</li>
+<li>Big Thief</li></b>
 </ul>
 </section>);
 }
@@ -100,8 +121,8 @@ return(
     </select>
     <br /><br />     <br />
 
-                 <label id="sugestao" htmlFor="sugestoes" > </label>
-                 <textarea type="textarea" id="sugestao" name="sugestao" rows="5" cols="50">Deixa aqui a tua sugestão de artistas e bandas, e de como podemos melhorar para o próximo ano! </textarea>
+                 <textarea type="textarea" id="sugestao" name="sugestao" rows="5" cols="50" placeholder="Deixa aqui a tua sugestão de artistas e bandas, e de como podemos melhorar para o próximo ano!">
+                 </textarea>
                  <br /><br />
 
  <br />
@@ -112,14 +133,32 @@ return(
 );
 }
 
+function Footer(){
+return(
+<footer class="footer">
+<center>
+  <p><b><i>Website</i> criado por:</b><br/>
+      <ul>
+          Rita | nº112018<br/>
+          Ana | nº111658<br/>
+          Miguel | nº111590<br/>
+      </ul></p>
+  </center>
+</footer>
+)}
+
+
 function App() {
  return (
  <div className="App">
     <Cabecalho />
     <ListaDasBandas />
     <FormFesta />
+    <Footer/>
  </div>
  );
+}
+export default App;
 }
 export default App;
 
