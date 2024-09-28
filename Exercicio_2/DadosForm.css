@@ -15,14 +15,33 @@ padding: 20px;
 font-size: 23px;
 }
 
-img {
-display: block;
-margin: 0 auto; /* Centraliza horizontalmente */
-width: 200px
+.img {
+  position: absolute;
+  top: 10px; /* Alinha a imagem a 10 pixels do topo do contêiner */
+  right: 10px; /* Alinha a imagem a 10 pixels do lado direito do contêiner */
+  width: 200px; /* Ajusta a largura da imagem para 200 pixels */
 }
 
-.DadosForm{
-background: rgba(255, 255, 255, 0.5);
-background-size: cover;
-margin: 0;
+.dados {
+  margin-left: -140px;
+}
+
+.DadosForm {
+  background: rgba(255, 255, 255, 0.5); /* Fundo branco semi-transparente */
+  background-size: cover; /* Faz a imagem de fundo cobrir o container */
+  margin: 5px auto; /* Centraliza horizontalmente e adiciona margem vertical */
+  padding-right: 300px; /* Espaço interior à direita */
+  padding-left: 300px; /* Espaço interior à esquerda*/
+  padding-bottom: 30px; /* Espaço interno na parte inferior */
+  border: 1px solid #ccc; /* Borda cinza clara*/
+  border-radius: 10px; /* Arredonda os cantos da borda */
+  max-width: 600px; /* Largura máxima do container */
+  position: relative; /* Define o container para posicionamento absoluto */
+}
+
+body {
+  display: flex; /* flexbox para o layout */
+  justify-content: center; /* Centralizar horizontalmente */
+  align-items: center; /* Centralizar verticalmente */
+  min-height: 100vh; /* Faz com que o corpo ocupe a altura total da viewport */
 }
