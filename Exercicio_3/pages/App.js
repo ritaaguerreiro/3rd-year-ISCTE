@@ -88,6 +88,7 @@ return(
         <h3>Qual o artista/banda que mais gostaste de ouvir?</h3>
 
         <select id="melhora" name="artista" onChange={handleChange}>
+     <option value="" disabled selected hidden>Escolhe um artista/banda</option>
             <option value="Shanin Blake">Shanin Blake (dia 27)</option>
             <option value="Toy">Toy (dia 27)</option>
             <option value="Aurora">Aurora (dia 28)</option>
@@ -119,7 +120,8 @@ return(
 
 <h3>Classifica a tua satisfação neste festival! (de 1 a 5 estrelas)</h3>
 
-    <label htmlFor="rating" style={{ fontFamily: "Georgia, sans-serif", fontSize: "20px" }}>Escolhe uma classificação: </label>
+    <label htmlFor="rating" style={{ fontFamily: "Georgia, sans-serif", fontSize: "20px" }}> </label>
+    <option value="" disabled selected hidden>Dá uma classificação</option>
     <select id="rating" name="rating" onChange={handleChange}>
      <option value="1 estrela">★☆☆☆☆ (1 estrela)</option>
      <option value="2 estrelas">★★☆☆☆ (2 estrelas)</option>
