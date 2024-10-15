@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './index.css';
-import App from './pages/App'; // Caminho ajustado após mover o ficheiro para 'pages'
-import DadosForm from './pages/DadosForm'; // Caminho ajustado após mover o ficheiro para 'pages'
+import App from './pages/App';
+import DadosForm from './pages/DadosForm';
+import HistoricoForm from './pages/HistoricoForm';
+import EstatisticasForm from './pages/EstatisticasForm';
 import reportWebVitals from './reportWebVitals';
 
 
@@ -18,6 +20,10 @@ root.render(
         <Route path="/" element={<App />} />
         {/* Define a rota para /dados-form que renderiza DadosForm */}
         <Route path="/dados-form" element={<DadosForm />} />
+         {/* Define a rota para /historico-form que renderiza HistoricoForm */}
+        <Route path="/historico-form" element={<HistoricoForm />} />
+        {/* Define a rota para /estatisticas-form que renderiza EstatisticasForm */}
+        <Route path="/estatisticas-form" element={<EstatisticasForm />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

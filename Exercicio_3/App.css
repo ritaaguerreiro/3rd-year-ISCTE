@@ -134,7 +134,7 @@ font-size: 20px;
 }
 
 
-.botao {
+.botao1 {
     font-size: 20px;
     background-color: green;
     color: white;
@@ -148,10 +148,27 @@ font-size: 20px;
     transition: background-color 0.3s;
 }
 
-.botao:hover {
+.botao1:hover {
     background-color: #66BB6A;
 }
 
+.botao2 {
+    font-size: 20px;
+    background-color: #097969;
+    color: white;
+    border: black;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.3s;
+}
+
+.botao2:hover {
+    background-color: #66BB6A;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

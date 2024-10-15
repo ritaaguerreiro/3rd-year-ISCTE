@@ -1,0 +1,15 @@
+
+
+function Footer(){
+return(
+<footer class="footer">
+<center>
+  <p><b><i>Website</i> criado por:</b><br/>
+      <ul>
+          Rita | nº112018<br/>
+          Ana | nº111658<br/>
+          Miguel | nº111590<br/>
+      </ul></p>
+  </center>
+</footer>
+)}

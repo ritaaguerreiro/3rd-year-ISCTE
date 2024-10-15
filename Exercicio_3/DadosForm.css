@@ -1,5 +1,6 @@
 h1 {
   text-align: center;
+  color: #097969;
 }
 
 h3 {
@@ -15,6 +16,7 @@ padding: 20px;
 font-size: 23px;
 }
 
+
 .img {
   position: absolute;
   top: 10px; /* Alinha a imagem a 10 pixels do topo do contêiner */
@@ -26,7 +28,7 @@ font-size: 23px;
   margin-left: -140px;
 }
 
-.DadosForm {
+.Info {
   background: rgba(255, 255, 255, 0.5); /* Fundo branco semi-transparente */
   background-size: cover; /* Faz a imagem de fundo cobrir o container */
   margin: 5px auto; /* Centraliza horizontalmente e adiciona margem vertical */
@@ -44,4 +46,45 @@ body {
   justify-content: center; /* Centralizar horizontalmente */
   align-items: center; /* Centralizar verticalmente */
   min-height: 100vh; /* Faz com que o corpo ocupe a altura total da viewport */
+  font-family: 'Georgia', sans-serif;
+font-size: 20px;
+margin-left: 100px;
+padding: 20px;
+font-size: 23px;
+}
+
+.botao {
+    font-size: 20px;
+    background-color: #097969;
+    color: white;
+    border: black;
+    padding: 15px 32px;
+    text-align: center;
+    display: block; /* Mudado de inline-block para block */
+    margin: 20px auto; /* Centraliza o botão e adiciona margem em cima e embaixo */
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.3s;
+}
+
+.botao:hover {
+    background-color: #66BB6A;
+}
+
+.botao3 {
+    font-size: 20px;
+    background-color: darkred;
+    color: white;
+    border: black;
+    padding: 15px 32px;
+    text-align: center;
+    display: block; /* Mudado de inline-block para block */
+    margin: 20px auto; /* Centraliza o botão e adiciona margem em cima e embaixo */
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.3s;
+}
+
+.botao3:hover {
+    background-color: #66BB6A;
 }

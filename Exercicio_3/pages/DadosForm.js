@@ -1,13 +1,15 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import '../DadosForm.css';
 import fairy from "../fada1.png";
 
 function DadosForm() {
   const location = useLocation();
+  const navigate = useNavigate();
+  const GoBack = () => {navigate('/');} // Navegar de volta para a página inicial
 
   return (
-    <section className="DadosForm">
+    <section className="Info">
       <h1>Os dados inseridos no formulário estão aqui!</h1>
       <img src={fairy} alt="Fada" class="img" />
       <br/>
@@ -18,7 +20,8 @@ function DadosForm() {
       <li><b>Sugestões feitas: </b> {location.state?.sugestoes || "Sem resposta"}</li>
       </ul><br/>
       <h3>Obrigado! O teu feedback é importante para nós :)</h3>
-      <br/><br/><br/>
+      <br/><br/>
+       <button onClick={GoBack} className='botao'>Volta à página anterior</button>
     </section>
   );
 }

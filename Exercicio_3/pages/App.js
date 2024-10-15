@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import logo from '../logo.svg';
 import '../App.css';
 import DadosForm from './DadosForm';
-import {useNavigate} from "react-router-dom";
+import HistoricoForm from './HistoricoForm';
+import EstatisticasForm from './EstatisticasForm';
+import {useNavigate, useLocation} from "react-router-dom";
 import mago from "../mago.jpg";
 import capucho from "../capucho.jpg";
 import elf from "../elf.jpg";
@@ -11,7 +13,6 @@ import rei from "../rei.jpg";
 import viking from "../viking.jpg";
 import dragao from "../dragon.gif";
 import cogumelo from '../mushroom.gif';
-import gifaurora from '../aurora_gif.gif'
 
 
 function Cabecalho() {
@@ -54,31 +55,112 @@ return(
 </section>);
 }
 
-function FormFesta(){
-     const navigate = useNavigate();
+function FormFesta() {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const state = location.state || {}; // Captura o state se existir
 
-   const [inputs, setInputs] = useState({});
+    const [inputs, setInputs] = useState({});
 
-    // Função para atualizar o artista selecionado
-   const handleChange = (event) => {
-   const name = event.target.name;
-   const value = event.target.value;
-   setInputs(values => ({...values, [name]:value}))}
+    const handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setInputs(values => ({ ...values, [name]: value }));
+    }
 
+    // Submeter e guardar os dados
+    const goToDados = () => {
+        // Obter os dados armazenados no localStorage
+        const storedData = JSON.parse(localStorage.getItem("historicoData")) || {
+            artistas_escolhidos: [],
+            sugestoes_dadas: [],
+            classificacoes_dadas: [],
+            atividades_escolhidas: [],
+        };
 
-  const goToReceiver = () => {
-    navigate('/dados-form', {
-      state: {
-        melhorartista: inputs.artista,   //busca pelo name
-        melhoratividade: inputs.atividades,
-        classificacao: inputs.rating,
-        sugestoes: inputs.sugestao
-      }
+        // Adicionar novos dados
+        const novosArtistas = [...storedData.artistas_escolhidos, inputs.artista];
+        const novasSugestoes = [...storedData.sugestoes_dadas, inputs.sugestao];
+        const novasClassificacoes = [...storedData.classificacoes_dadas, inputs.rating];
+        const novasAtividades = [...storedData.atividades_escolhidas, inputs.atividades];
+
+        // Atualizar o localStorage
+        localStorage.setItem("historicoData", JSON.stringify({
+            artistas_escolhidos: novosArtistas,
+            sugestoes_dadas: novasSugestoes,
+            classificacoes_dadas: novasClassificacoes,
+            atividades_escolhidas: novasAtividades,
+        }));
+
+        // Navegar para a página dados-form
+        navigate('/dados-form', {
+        state: {
+            melhorartista: (inputs.artista),
+            melhoratividade: (inputs.atividades),
+            classificacao: (inputs.rating),
+            sugestoes: (inputs.sugestao)
+        }
     });
-  }
+}
 
+    // Carregar os dados do local storage ao iniciar
+    useEffect(() => {
+        const storedData = JSON.parse(localStorage.getItem("historicoData"));
+        if (storedData) {
+            setArtistas(storedData.artistas_escolhidos || []);
+            setSugestoes(storedData.sugestoes_dadas || []);
+            setClassificacoes(storedData.classificacoes_dadas || []);
+            setAtividades(storedData.atividades_escolhidas || []);
+        }
+    }, []);
+
+    const [artistas, setArtistas] = useState(state.artistas_escolhidos || []);
+    const [sugestoes, setSugestoes] = useState(state.sugestoes_dadas || []);
+    const [classificacoes, setClassificacoes] = useState(state.classificacoes_dadas || []);
+    const [atividades, setAtividades] = useState(state.atividades_escolhidas || []);
+
+    // Função para ver o histórico de respostas (sem acumular novos dados)
+    const goToHistorico = () => {
+    // Tentar carregar os dados do local storage
+    const storedData = JSON.parse(localStorage.getItem("historicoData")) || {
+        artistas_escolhidos: [],
+        sugestoes_dadas: [],
+        classificacoes_dadas: [],
+        atividades_escolhidas: [],
+    };
+
+    // Navegar para a página do histórico com os dados já armazenados (ou vazios)
+    navigate('/historico-form', {
+        state: {
+            artistas_escolhidos: storedData.artistas_escolhidos || [],
+            sugestoes_dadas: storedData.sugestoes_dadas || [],
+            classificacoes_dadas: storedData.classificacoes_dadas || [],
+            atividades_escolhidas: storedData.atividades_escolhidas || []
+        }
+    });
+};
+
+    // Funções para adicionar os novos dados
+    function addArtista(artista) {
+        setArtistas([...artistas, artista]);
+    }
+
+    function addSugestoes(sugestao) {
+        setSugestoes([...sugestoes, sugestao]);
+    }
+
+    function addClassificacoes(classificacao) {
+        setClassificacoes([...classificacoes, classificacao]);
+    }
+
+    function addAtividades(atividade) {
+        setAtividades([...atividades, atividade]);
+
+    }
+    const GotoEstatisticas = () => {
+        navigate('/estatisticas-form'); // Navegar para a página de estatísticas
+    };
 return(
-
 
 <section id="feedback">
     <br /> <br />
@@ -88,7 +170,7 @@ return(
         <h3>Qual o artista/banda que mais gostaste de ouvir?</h3>
 
         <select id="melhora" name="artista" onChange={handleChange}>
-     <option value="" disabled selected hidden>Escolhe um artista/banda</option>
+        <option value="" disabled selected hidden>Escolhe um artista/banda</option>
             <option value="Shanin Blake">Shanin Blake (dia 27)</option>
             <option value="Toy">Toy (dia 27)</option>
             <option value="Aurora">Aurora (dia 28)</option>
@@ -121,8 +203,8 @@ return(
 <h3>Classifica a tua satisfação neste festival! (de 1 a 5 estrelas)</h3>
 
     <label htmlFor="rating" style={{ fontFamily: "Georgia, sans-serif", fontSize: "20px" }}> </label>
-    <option value="" disabled selected hidden>Dá uma classificação</option>
     <select id="rating" name="rating" onChange={handleChange}>
+     <option value="" disabled selected hidden>Dá uma classificação</option>
      <option value="1 estrela">★☆☆☆☆ (1 estrela)</option>
      <option value="2 estrelas">★★☆☆☆ (2 estrelas)</option>
      <option value="3 estrelas">★★★☆☆ (3 estrelas)</option>
@@ -137,8 +219,12 @@ return(
                  </textarea>
                  <br /><br />
 
- <br />
-    <button onClick={goToReceiver} class="botao">Clica aqui para verificares a tua resposta</button>
+    <button type="button" onClick={goToDados} class="botao1">Submete e vê a tua resposta!</button>
+ <br /><br /> <br />
+    <button type="button" onClick={goToHistorico} class="botao2">Histórico de respostas</button>
+     <br /><br />
+    <button type="button" onClick={GotoEstatisticas} class="botao2">Estatísticas</button>
+
  <br /><br />  <br /><br />
 </form>
 </section>
@@ -161,14 +247,16 @@ return(
 
 
 function App() {
- return (
- <div className="App">
-    <Cabecalho />
-    <ListaDasBandas />
-    <FormFesta />
-    <Footer/>
- </div>
- );
+    return (
+        <div className="App">
+            <Cabecalho />
+            <ListaDasBandas />
+            <FormFesta />
+            <Footer />
+        </div>
+    );
 }
+
+
 export default App;
 
